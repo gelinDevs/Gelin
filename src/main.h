@@ -23,8 +23,8 @@ class CValidationState;
 static const int64_t DARKSEND_COLLATERAL = (0.01*COIN);
 static const int64_t DARKSEND_POOL_MAX = (4999.99*COIN);
 
-static const int64_t STATIC_POS_REWARD = 1 * COIN; //Constant reward of 3.4 IC per block has been ignored
-static const int64_t TARGET_SPACING = 90; // 1,5 min per Block
+static const int64_t STATIC_POS_REWARD = 1 * COIN; //Constant reward of 1 GLN per block has been ignored
+static const int64_t TARGET_SPACING = 30; // 1,5 min per Block
 //static const int64_t TARGET_SPACING2 = 53; // 53 sec per Block
 //static const int64_t STAKE_TIMESPAN_SWITCH_TIME = 1508858115;
 //static const int64_t STAKE_TIMESPAN_SWITCH_TIME1 = 1509555600; //1 Nov 2017 17:00:00 GMT
@@ -44,7 +44,7 @@ class CReserveKey;
 class CWallet;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
-static const unsigned int MAX_BLOCK_SIZE = 3000000;
+static const unsigned int MAX_BLOCK_SIZE = 2000000;
 /** The maximum size for mined blocks */
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 /** Default for -blockprioritysize, maximum space for zero/low-fee transactions **/
@@ -66,7 +66,7 @@ static const int64_t MIN_TX_FEE = 1000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 /** No amount larger than this (in satoshi) is valid */
-static const int64_t MAX_MONEY = 20000000 * COIN; // 20M PoW coins
+static const int64_t MAX_MONEY = 20000000 * COIN; // 20M coins
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
@@ -77,7 +77,7 @@ inline int64_t FutureDrift(int64_t nTime) { return nTime + DRIFT; }
 /** "reject" message codes **/
 static const unsigned char REJECT_INVALID = 0x10;
 
-inline int64_t GetMNCollateral(int nHeight) { return 1000; }
+inline int64_t GetMNCollateral(int nHeight) { return 4000; }
 
 extern CScript COINBASE_FLAGS;
 extern CCriticalSection cs_main;

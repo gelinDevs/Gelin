@@ -57,10 +57,10 @@ public:
 		// The message start string is designed to be unlikely to occur in normal data.
 		// The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 		// a large 4-byte int at any alignment.
-		pchMessageStart[0] = 0x2e;
-		pchMessageStart[1] = 0x3d;
-		pchMessageStart[2] = 0x52;
-		pchMessageStart[3] = 0xb1;
+		pchMessageStart[0] = 0x3f;
+		pchMessageStart[1] = 0x32;
+		pchMessageStart[2] = 0xd1;
+		pchMessageStart[3] = 0xc6;
 		vAlertPubKey = ParseHex("043022c8409e72e15e23511a735ecfa8c2e80ca6c282b812cd42f0b38366cc512dc89d932a55a4ceab8f87cc6c14c296ae95704cc89745874a6af5a2543ec0fbf5");
 		nDefaultPort = 55669;
 		nRPCPort = 55668;
@@ -69,7 +69,7 @@ public:
 		// Build the genesis block. Note that the output of the genesis coinbase cannot
 		// be spent as it did not originally exist in the database.
 
-		const char* pszTimestamp = "Second April 2018 is the start of Gelin";
+		const char* pszTimestamp = "10th of April 2018 is the start of Gelin";
 		std::vector<CTxIn> vin;
 		vin.resize(1);
 		vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
@@ -81,9 +81,9 @@ public:
 		genesis.hashPrevBlock = 0;
 		genesis.hashMerkleRoot = genesis.BuildMerkleTree();
 		genesis.nVersion = 1;
-		genesis.nTime = 1522679046; 
+		genesis.nTime = 1523370975; 
 		genesis.nBits = 520159231;
-		genesis.nNonce = 505996;
+		genesis.nNonce = 608378;
 
 		/*if (true && genesis.GetHash() != hashGenesisBlock)
                        {
@@ -115,8 +115,8 @@ public:
 
 		hashGenesisBlock = genesis.GetHash();
 
-		assert(genesis.hashMerkleRoot == uint256("0x66ed456db55b7e5da925ad432f46403fa277fe9c8a633541a19c464f0b1a1b22"));
-		assert(hashGenesisBlock == uint256("0x000067afd85fa27af1a4015c2d1010a27d45da5132d834ec05e4df5167b53950"));
+		assert(genesis.hashMerkleRoot == uint256("0xc5667e7e465242023a42225d96744ff5122dec3c57378a355a99ae154b295f18"));
+		assert(hashGenesisBlock == uint256("0x00002fa8c5c04e1cc838699fa154aa9504c1b637a745e35bc9195786b4d673ad"));
 
 
 		base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 38); // G
@@ -134,7 +134,7 @@ public:
 		//strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
 		strDarksendPoolDummyAddress = "i7FBJNGDmEsU5wx2m3xw85N8kRgCqA8S7L";
 		nLastPOWBlock = 100000000;
-		nPOSStartBlock = 100;
+		nPOSStartBlock = 331;
 	}
 
 
@@ -175,13 +175,13 @@ public:
 		genesis.nBits = 520159231;
 		genesis.nNonce = 505996;
 
-		assert(hashGenesisBlock == uint256("0x000067afd85fa27af1a4015c2d1010a27d45da5132d834ec05e4df5167b53950"));
+		assert(hashGenesisBlock == uint256("0x00002fa8c5c04e1cc838699fa154aa9504c1b637a745e35bc9195786b4d673ad"));
 
 		vFixedSeeds.clear();
 		vSeeds.clear();
 
-		base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 28);
-		base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 38);
+		base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 38);
+		base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 48);
 		base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 88);
 		base58Prefixes[STEALTH_ADDRESS] = std::vector<unsigned char>(1, 98);
 		base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
