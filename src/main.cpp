@@ -45,7 +45,7 @@ CTxMemPool mempool;
 map<uint256, CBlockIndex*> mapBlockIndex;
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 
-CBigNum bnProofOfStakeLimit(~uint256(0) >> 10); //stake limit 10
+CBigNum bnProofOfStakeLimit(~uint256(0) >> 80); //stake limit 80
 
 unsigned int nStakeMinAge = 30 * 60; // 30 minutes
 unsigned int nModifierInterval = 8 * 60; // time to elapse before new modifier is computed
@@ -4519,9 +4519,9 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue)
 
     int64_t ret = 0;
 
-    if(nHeight < 10000){
+    if(nHeight < 1000){
       ret = 0;
-    }else if (nHeight < 21600){
+    }else if (nHeight < 10000){
       ret = blockValue * 0.75;
     }else if (nHeight < 86400){
       ret = blockValue * 0.8;
